@@ -1,9 +1,6 @@
 import os
 from pathlib import Path
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -28,7 +25,7 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.registro_hora_extra',
     'apps.core',
-    'bootstrapform',
+    #'bootstrapform',
 
 ]
 
