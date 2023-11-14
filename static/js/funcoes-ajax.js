@@ -16,6 +16,7 @@ function utilizouHoraExtra(id){
     });
 }
 
+
 function process_response(funcionarios){
     func_select = document.getElementById('funcionarios');
     func_select.innerHTML = "";

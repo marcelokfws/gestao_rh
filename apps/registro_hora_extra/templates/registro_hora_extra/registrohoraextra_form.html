@@ -23,9 +23,14 @@
         Marcar como utilizada
     </button>
 
+    <button onclick="naoUtilizouHoraExtra({{ object.id }})"
+            class="btn btn-warning" type="button">
+        Marcar como não utilizada
+    </button>
+
 </form>
 
-<h2 id="horas_atualizadas"> {{ object.funcionario.total_horas_extra }}</h2>
+<h2 id="horas_atualizadas">Total de horas: {{ object.funcionario.total_horas_extra }}</h2>
 
 <br>
 <p id="mensagem"></p>

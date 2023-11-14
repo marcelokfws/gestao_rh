@@ -68,19 +68,36 @@ class HoraExtraNovo(CreateView):
 class UtilizouHoraExtra(View):
     def post(self, *args, **kwargs):
         registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+
         registro_hora_extra.utilizada = True
         registro_hora_extra.save()
 
         empregado = self.request.user.funcionario
 
         response = json.dumps(
-            {'mensagem': 'Requisicao executada',
+            {'mensagem': 'Requisição executada. Horas marcado como utilizadas',
              'horas': float(empregado.total_horas_extra)
              }
         )
 
         return HttpResponse(response, content_type='application/json')
 
+
+class naoUtilizouHoraExtra(View):
+    def post(self, *args, **kwargs):
+        registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+        registro_hora_extra.utilizada = False
+        registro_hora_extra.save()
+
+        empregado = self.request.user.funcionario
+
+        response = json.dumps(
+            {'mensagem': 'Requisição executada. Horas marcado como não utilizadas',
+             'horas': float(empregado.total_horas_extra)
+             }
+        )
+
+        return HttpResponse(response, content_type='application/json')
 
 class ExportarParaCSV(View):
     def get(self, request):
