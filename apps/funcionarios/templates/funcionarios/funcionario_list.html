@@ -16,13 +16,11 @@
 
     <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
     <a href="{% url 'relatorio_funcionarios' %}" class="btn btn-info">
-        {{ report_button }}
+        Relatório de Funcionários
     </a>
     <a href="{% url 'relatorio_funcionarios_html' %}" class="btn btn-info">
         Relatorio de funcionarios HTML
     </a>
-    <a href="{% url 'relatorio_funcionarios_html_debug' %}" class="btn btn-danger">
-        Relatorio de funcionarios HTML
-    </a>
+
 
 {% endblock %}

@@ -115,5 +115,3 @@ class Pdf(View):
         return Render.render('funcionarios/relatorio.html', params, 'Relatório')
 
 
-class PdfDebug(TemplateView):
-    template_name = 'funcionarios/relatorio.html'
