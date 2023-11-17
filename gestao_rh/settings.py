@@ -1,13 +1,12 @@
 import os
 from pathlib import Path
-
+from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-lt85mvsa5an&k3=m@dqr(_l9=@=8r5*=(3!iyqw8#i%ns5bmcl'
+SECRET_KEY = config('SECRET_KEY')
 
-
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['3.23.214.109', '*']
 
@@ -128,3 +127,11 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+#EMAIL_USE_SSL = True
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Lista Funcionários <django.marceloesileia@gmail.com>'
