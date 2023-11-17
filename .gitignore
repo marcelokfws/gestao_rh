@@ -4,5 +4,12 @@ venv
 *.pyc
 gestao_rh/__pycache__/
 gestao-rh2.pem
+media
 static
-.env
+uwsgi.ini
+uwsgi_params
+*.bak
+*.dat
+*.pid
+*.dir
+local_settings.py

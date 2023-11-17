@@ -31,3 +31,5 @@ def send_relatorio():
     )
 
     return 'Email enviado com sucesso'
+
+
