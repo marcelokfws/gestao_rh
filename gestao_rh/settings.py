@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from .local_settings import *
 from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +28,8 @@ INSTALLED_APPS = [
     'apps.core',
     'bootstrapform',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'apps.app_antiga'
 
 ]
 
@@ -65,12 +67,7 @@ WSGI_APPLICATION = 'gestao_rh.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 
 # Password validation
@@ -121,11 +118,13 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 CELERY_RESULT_BACKEND = 'django-db'
-CELERY_BROKER_URL = 'redis://localhost:6379'
+
 
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
+
+DATABASE_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -14,3 +14,4 @@ uwsgi_params
 *.dir
 local_settings.py
 .env
+local_settings.py
