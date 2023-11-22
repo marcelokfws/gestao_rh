@@ -1,23 +1,47 @@
 {% extends 'base.html' %}
-
+{% load i18n%}
 {% block main %}
-   <div class="row">
-    <div class="col-sm">
-      Hello
-    </div>
-    <div class="col-sm">
-      Ola {{ usuario.funcionario.nome }}
+   <div class="text-center w-100 border border-dark ">
+        <div class="mt-5">
+      <!--{% trans "One of three columns"%}-->
+        {% blocktrans %}
+           <h1 class="">Human Resource Management Program</h1>
+        {% endblocktrans %}
+        </div><br>
+        <div class="col mt-5 text-primary">
+        <h3>{% trans " Hello "%}, {{ usuario.funcionario.nome }}</h3>
+        </div><br><br>
+        <table class="table table-bordered table-primary ">
+            <thead>
+            <tr>
+            <tr>
+       <th scope="col" class="border border-dark">
         <a href="{% url 'list_funcionarios' %}">Gerenciar funcionarios</a>
+        </th>
+            </tr>
+            <tr>
+        <th scope="col" class="border border-dark">
         <a href="{% url 'list_departamentos' %}">Gerenciar departamentos</a>
+        </th>
+            </tr>
+            <tr>
+        <th scope="col" class="border border-dark">
         <a href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
-    </div>
-    <div class="col-sm">
-      <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </th>
+            </tr>
+            <tr>
+    <th scope="col" class="border border-dark">
+
         {% if usuario.funcionario.empresa %}
             <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
         {% else %}
             <a href="{% url 'create_empresa'%}">Criar empresa</a>
         {% endif %}
-    </div>
+    </th>
+           </tr>
+        </thead>
+
+       </table>
+
   </div>
 {% endblock %}

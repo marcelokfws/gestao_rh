@@ -1,7 +1,7 @@
 import os
-from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 from .local_settings import *
-from decouple import config
+#from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-lt85mvsa5an&k3=m@dqr(_l9=@=8r5*=(3!iyqw8#i%ns5bmcl'
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -56,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -92,7 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -128,7 +130,15 @@ DATABASE_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('pt', _('Portugues')),
+    ('es', _('Spanish')),
+)
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 
 
