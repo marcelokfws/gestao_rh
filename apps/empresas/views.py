@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import ListView
 from .models import Empresa
-from django.http import HttpResponse
 
 
 class EmpresaCreate(CreateView):
@@ -13,10 +13,18 @@ class EmpresaCreate(CreateView):
         funcionario = self.request.user.funcionario
         funcionario.empresa = obj
         funcionario.save()
-        return HttpResponse('Ok')
+        return redirect('list_empresas')
+
+
+class EmpresaList(ListView):
+    model = Empresa
+
+    def get_queryset(self):
+        return Empresa.objects.all()
 
 
 class EmpresaEdit(UpdateView):
     model = Empresa
     fields = ['nome']
+
 

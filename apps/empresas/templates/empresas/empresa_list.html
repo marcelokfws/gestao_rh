@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h1 class="text-center mt-5">Lista de Empresas</h1>
+<br>
+    {% for empresa in object_list %}
+        <a href="{% url 'list_empresas' %}">
+            {{ empresa }}
+        </a>
+
+        <br>
+    {% endfor %}
+
+{% endblock %}

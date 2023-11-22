@@ -3,7 +3,12 @@
 {% block main %}
 <form method="post">
     {% csrf_token %}
-    {{ form|bootstrap }}
-    <button type="submit">Salvar</button>
+
+    <div class="form-outline form-white mb-4">
+        <label  class="form-label " for="id_nome"><h1>Nome da Empresa: {{object.nome}}</h1></label>
+        <input name="nome" type="text"  class="form-control form-control-lg" placeholder="{{object.nome}}" />
+    </div>
+
+    <button type="submit" class="btn btn-info">Salvar</button>
 </form>
 {% endblock %}

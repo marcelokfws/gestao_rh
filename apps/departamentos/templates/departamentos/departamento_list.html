@@ -2,7 +2,7 @@
 
 {% block main %}
 
-    Lista de Departamentos
+    <h1 class="text-center mt-5">Lista de Departamentos</h1>
 <br>
     {% for departamento in object_list %}
         <a href="{% url 'update_departamento' departamento.id %}">

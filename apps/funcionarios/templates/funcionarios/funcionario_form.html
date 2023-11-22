@@ -5,10 +5,15 @@
 
 <form method="POST">
     {% csrf_token %}
+    {{form|bootstrap}}
+    <!--<div class="form-outline form-white mb-4">
+        <label  class="form-label " for="id_nome"><h1>Nome: {{object.nome}}</h1></label>
+        <input name="nome" type="text"  class="form-control form-control-lg" placeholder="{{object.nome}}" />
+    </div>-->
 
-    {{ form|bootstrap }}
 
-    <button type="submit" class="btn btn-main">Salvar</button>
+
+    <button type="submit" class="btn btn-info">Salvar</button>
 </form>
 
 <br>
@@ -24,7 +29,7 @@
 </ul>
 
 {% if object %}
-<a href="{% url 'create_documento' object.id %}" class="btn btn-success">
+<a href="{% url 'create_documento' object.id %}" class="btn btn-info">
     Adicionar documento
 </a>
 {% endif %}
