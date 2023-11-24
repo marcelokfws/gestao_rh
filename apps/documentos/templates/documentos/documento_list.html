@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h1 class="text-center mt-5">Lista de Documentos</h1>
+<br>
+    {% for doc in documento %}
+        <a href="{% url 'documento_list' %}">
+            {{ doc }}
+        </a>
+
+        <br>
+    {% endfor %}
+
+{% endblock %}

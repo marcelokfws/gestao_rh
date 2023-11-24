@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'rest_framework',
     'rest_framework.authtoken',
-    'apps.app_antiga'
+    'apps.app_antiga',
+    'fontawesomefree',
 
 ]
 

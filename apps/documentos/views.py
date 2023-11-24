@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views.generic import CreateView
 
 from .models import Documento
@@ -15,3 +16,8 @@ class DocumentoCreate(CreateView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
+
+def DocumentoList(request):
+    documento = Documento.objects.filter()
+    return render(request, 'documentos/documento_list.html', {'documento': documento})

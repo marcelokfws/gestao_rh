@@ -3,17 +3,17 @@
 
 {% block main %}
 
-    <select name="departamentos" id="departamentos" onchange="filtraFuncionarios()">
+    <select  class="btn btn-info mb-5" name="departamentos" id="departamentos" onchange="filtraFuncionarios()">
         <option disabled selected="selected">Selecione um departamento</option>
         {% for departamento in departamentos %}
-            <option value="{{ departamento.id }}"> {{ departamento.nome }}</option>
+            <option  value="{{ departamento.id }}"> {{ departamento.nome }}</option>
         {% endfor %}
     </select>
 
-    <select name="funcionarios" id="funcionarios">
+    <select class="btn btn-info mb-5"name="funcionarios" id="funcionarios">
     </select>
 
-    <p id="mensagem"></p>
+    <p class="btn btn-success d-flex w-50" id="mensagem"></p>
 
 {% endblock %}
 

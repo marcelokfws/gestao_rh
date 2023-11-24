@@ -4,18 +4,23 @@
 
     <h1 class="text-center mt-5">Lista de Departamentos</h1>
 <br>
+
+<a href="{% url 'departamentos_ajax' %}" class="btn btn-primary ">Departamento por funcionário</a>
+<br><hr><hr>
     {% for departamento in object_list %}
-        <a href="{% url 'update_departamento' departamento.id %}">
+        <h3 class="text-center"><a  href="{% url 'update_departamento' departamento.id %}">
             {{ departamento }}
-        </a>
-        <a href="{% url 'delete_departamento' departamento.id %}">
+        </a></h3>
+        <a class="btn btn-info " href="{% url 'delete_departamento' departamento.id %}">
             Deletar
-        </a>
+        </a><hr>
 
         <br>
     {% endfor %}
-
+<br><br>
 <a href="{% url 'create_departamento' %}" class="btn btn-info">Novo
 
 </a>
+
+
 {% endblock %}

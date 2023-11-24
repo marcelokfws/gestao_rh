@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n%}
+{% block main %}
+   <div class="text-center w-100 border border-dark ">
+        <div class="mt-4">
+      <!--{% trans "One of three columns"%}-->
+        {% blocktrans %}
+           <h1 class="">Human Resource Management Program</h1>
+        {% endblocktrans %}
+        </div><br>
+        <div class="col mt-4 text-primary">
+        <h3>{% trans " Hello "%}, {{ usuario.funcionario.nome }}</h3>
+        </div><br><br>
+        <table class="table table-bordered table-info ">
+            <thead>
+            <tr>
+            <tr>
+       <th scope="col" class="border border-dark">
+
+        <a href="{% url 'list_funcionarios' %}"><i class="fa-solid fa-user-tie" style="font-size:48px;color:blue"></i>  Gerenciar funcionarios</a>
+        </th>
+            </tr>
+            <tr>
+        <th scope="col" class="border border-dark">
+
+        <a href="{% url 'list_departamentos' %}"><i class="fa-solid fa-building-user" style="font-size:48px;color:blue"></i>  Gerenciar departamentos</a>
+        </th>
+            </tr>
+            <tr>
+        <th scope="col" class="border border-dark">
+
+        <a href="{% url 'list_empresas' %}"><i class="fa-solid fa-building-circle-check" style="font-size:48px;color:blue"></i>  Lista de empresas</a>
+        </th>
+            </tr>
+            <tr>
+        <th scope="col" class="border border-dark">
+
+        <a href="{% url 'list_hora_extra' %}"><i class="fa-solid fa-clock" style="font-size:48px;color:blue"></i>  Gerenciar banco de horas</a>
+        </th>
+            </tr>
+            <tr>
+    <th scope="col" class="border border-dark">
+
+
+        {% if usuario.funcionario.empresa %}
+            <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}"> <i class="fa-regular fa-building" style="font-size:48px;color:blue"></i>  Editar empresa</a>
+        {% else %}
+            <a href="{% url 'create_empresa'%}">Criar empresa</a>
+        {% endif %}
+    </th>
+           </tr>
+        </thead>
+
+       </table>
+
+  </div>
+{% endblock %}
